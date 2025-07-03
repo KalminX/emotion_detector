@@ -2,6 +2,9 @@
 
 A web-based application that uses your **webcam** to detect your **facial expressions in real time** and displays your **current emotion with a matching emoji**.
 
+[Check it out](https://kal-emo-app-f60c7c7bc383.herokuapp.com/)
+
+
 This app leverages **OpenCV** for face detection and **DeepFace** for emotion recognition — all running on a **Flask backend** with a sleek **HTML/JavaScript frontend**.
 
 > **Note:** The current version **does not draw rectangles** around faces yet; it only displays the detected emotion and emoji.
