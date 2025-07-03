@@ -1,0 +1,52 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*.so
+
+# Virtual environment
+env/
+venv/
+.emotion_detector/
+emotion_detector/
+ENV/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# Logs and temp files
+*.log
+*.tmp
+*.swp
+*.bak
+*.DS_Store
+
+# Flask cache / instance folder
+instance/
+.flaskenv
+
+# Pytest cache
+.pytest_cache/
+.coverage
+
+# VS Code settings
+.vscode/
+
+# Heroku & Docker
+*.tar
+*.orig
+Dockerfile.*
+*.sqlite3
+
+# Git files
+*.orig
+
+# Python egg metadata
+*.egg-info/
+dist/
+build/
+
+# Compiled static files
+staticfiles/
+
+# System files
+Thumbs.db

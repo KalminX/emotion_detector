@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emotion Detector</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+    <div class="container mx-auto px-4 py-8 max-w-3xl">
+        <h1 class="text-3xl font-bold text-center text-gray-800 mb-6">Real-time Emotion Detection</h1>
+        <div class="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center">
+            <div class="flex justify-center">
+                <video id="video" autoplay class="rounded-md max-w-full h-auto"></video>
+            </div>
+            <canvas id="canvas" class="hidden"></canvas>
+            <div id="emotion-output" class="mt-4 text-center text-lg font-medium text-gray-700"></div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>
