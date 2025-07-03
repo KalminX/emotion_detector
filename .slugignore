@@ -1,8 +1,0 @@
-# .slugignore
-
-*.h5
-models/
-datasets/
-~/.deepface/
-datasets/
-__pycache__/

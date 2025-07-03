@@ -1,18 +1,20 @@
 # 🎭 Real-Time Emotion Detection Web App
 
-A web-based application that uses your **webcam** to detect your **facial expressions in real time**, draws a **green rectangle** around your face, and displays your **current emotion with a matching emoji**.
+A web-based application that uses your **webcam** to detect your **facial expressions in real time** and displays your **current emotion with a matching emoji**.
 
-It combines the speed of **OpenCV** for face detection with the accuracy of **DeepFace** for emotion recognition — all powered by a **Flask backend** and a sleek **HTML/JavaScript frontend**.
+This app leverages **OpenCV** for face detection and **DeepFace** for emotion recognition — all running on a **Flask backend** with a sleek **HTML/JavaScript frontend**.
+
+> **Note:** The current version **does not draw rectangles** around faces yet; it only displays the detected emotion and emoji.
 
 ---
 
 ## ✨ Demo
 
-> A camera stream opens in your browser. Every 2 seconds:
+> When you open the camera stream in your browser:
 >
-> * A green rectangle is drawn around your detected face.
-> * Your current emotion (like “happy” 😊 or “sad” 😢) is displayed in real time.
+> * Your dominant emotion (e.g., “happy” 😊 or “sad” 😢) is displayed in real time.
 > * If no face is detected, a fallback message appears.
+> * No bounding boxes or rectangles are drawn around the face yet.
 
 ---
 
@@ -22,23 +24,23 @@ It combines the speed of **OpenCV** for face detection with the accuracy of **De
 
 * Your browser captures video from your webcam.
 * A frame is sent every 2 seconds to the Flask server.
-* OpenCV's Haar Cascade (`haarcascade_frontalface_default.xml`) detects the face coordinates.
+* OpenCV's Haar Cascade (`haarcascade_frontalface_default.xml`) detects the face location.
 
 ### 🤖 2. **Emotion Recognition**
 
 * The detected face is cropped and passed to **DeepFace**.
 * DeepFace returns the **dominant emotion** (e.g., `happy`, `neutral`, `sad`, etc.)
 
-### 🎨 3. **Frontend Overlay**
+### 🎨 3. **Frontend Display**
 
-* The emotion is displayed on the webpage with a matching **emoji**.
-* You see: `Detected: happy 😄` and a green rectangle drawn around your face.
+* The detected emotion is shown on the webpage with a matching **emoji**.
+* No rectangles or overlays are drawn around the face yet.
 
 ---
 
 ## 🖼️ Screenshot
 
-![demo](https://your-screenshot-url.com/demo.png) <!-- Replace with real image -->
+![demo](https://your-screenshot-url.com/demo.png) <!-- Replace with your actual screenshot -->
 
 ---
 
@@ -52,7 +54,7 @@ emotion-detector/
 │   └── index.html         # Main frontend page
 ├── static/
 │   └── style.css          # (Optional) custom styles
-└── README.md              # You’re reading it!
+└── README.md              # This file
 ```
 
 ---
@@ -86,17 +88,17 @@ python app.py
 
 2. **Open your browser:**
 
-Visit `http://localhost:5000`
+Go to `http://localhost:5000`
 
 3. **Allow camera access:**
 
-Your browser will prompt for webcam permissions.
+Grant permission when your browser asks for webcam access.
 
 ---
 
 ## 💬 Emotions Detected
 
-The following emotions are detected by DeepFace and mapped to emojis:
+DeepFace recognizes these emotions and they map to the following emojis:
 
 | Emotion  | Emoji |
 | -------- | ----- |
@@ -112,44 +114,37 @@ The following emotions are detected by DeepFace and mapped to emojis:
 
 ## 🧪 Development Notes
 
-* Uses `navigator.mediaDevices.getUserMedia` to stream webcam.
-* Uses `<canvas>` to capture frames from the video feed.
-* Sends base64 JPEG image to Flask backend for analysis.
-* Frontend updates DOM every 2 seconds with emotion + emoji.
+* Uses `navigator.mediaDevices.getUserMedia` to stream webcam video.
+* Captures frames using an HTML `<canvas>`.
+* Sends base64-encoded JPEG frames to Flask backend every 2 seconds.
+* Frontend updates the displayed emotion and emoji dynamically.
+* **Rectangle drawing around faces is not yet implemented.**
 
 ---
 
 ## 🔧 Future Improvements
 
-* [ ] Draw emoji or text bubble **near the detected face**
-* [ ] Support multiple faces with individual emotions
-* [ ] Add live charts to show emotional trends
-* [ ] Deploy to Heroku, Render, or Docker
+* [ ] Draw green rectangles around detected faces.
+* [ ] Draw emoji or text bubbles near faces.
+* [ ] Support multiple faces with individual emotions.
+* [ ] Add live emotion trend charts.
+* [ ] Deploy with Docker, Heroku, or Render.
 
 ---
 
 ## 🛡️ Privacy
 
-All processing is local and temporary — no images are saved or transmitted externally. Webcam access is browser-isolated and only granted with your permission.
+All processing is local and temporary — no images are saved or sent externally. Webcam access requires your permission and is restricted to your browser session.
 
 ---
 
 ## 🧑‍💻 Author
 
 **Kalmin**
-Motivated software developer passionate about combining AI and web technologies to create interactive tools.
+Motivated software developer passionate about AI and web technologies.
 
 ---
 
 ## 📄 License
 
-This project is licensed under the MIT License.
-Feel free to use, modify, and share!
-
----
-
-Let me know if you want me to include:
-
-* A GIF demo
-* Deployment instructions (Render, Docker, Heroku)
-* A CLI version of this tool
+MIT License — Feel free to use, modify, and share!
