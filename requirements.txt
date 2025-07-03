@@ -3,3 +3,5 @@ opencv-python-headless==4.9.0.80
 deepface==0.0.87
 gunicorn==21.2.0
 tf-keras
+boto3==1.34.89
+python-dotenv

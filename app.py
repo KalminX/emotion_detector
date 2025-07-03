@@ -3,8 +3,16 @@ import cv2
 import numpy as np
 from deepface import DeepFace
 import base64
+import os
+
+
+
+from model_loader import download_model_if_needed
 
 app = Flask(__name__)
+
+# Download required model
+download_model_if_needed("deepface/emotion_model.h5", os.path.expanduser("~/.deepface/weights/emotion_model.h5"))
 
 # Load Haar Cascade
 face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_default.xml")
@@ -40,4 +48,3 @@ def analyze():
 
 if __name__ == "__main__":
     app.run(debug=True)
-

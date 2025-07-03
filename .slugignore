@@ -1,0 +1,6 @@
+# .slugignore
+
+*.h5
+~/.deepface/weights/
+models/
+datasets/
